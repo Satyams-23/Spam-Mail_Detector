@@ -21,6 +21,7 @@ def authenticate():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+            # Specify a custom port to avoid conflicts
             creds = flow.run_local_server(port=8000)
 
         with open('token.json', 'w') as token:
